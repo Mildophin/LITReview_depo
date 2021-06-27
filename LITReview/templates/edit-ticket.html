@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div>Modifier un ticket</div>
+
+
+
+<form action="" method="post">
+    {% csrf_token %}
+<span>Titre</span>
+<input name="titre" id="titre" value="{{ ticket.title }}">
+
+<span>Description</span>
+<input name="description" id="description" value="{{ ticket.description }}">
+
+<span>Image</span>
+<input></BR>
+    <input type="submit" value="OK">
+</form>
+
+{% endblock %}

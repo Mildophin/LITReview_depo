@@ -1,0 +1,13 @@
+<div class="post">
+<div>{% if request.user == post.user %} Vous avez
+{% else %} {{ post.user }} a
+{% endif %} demandé une critique</div>
+<div class="right-align time">{{ post.time_created }}</div>
+<div>{{ post.title }}</div>
+<div>{{ post.description }}</div>
+<div>{{ post.image }}</div>
+
+{% if post.id in review_list %}
+{% else %} <button>Créer une critique</button>
+{% endif %}
+</div>

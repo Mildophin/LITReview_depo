@@ -1,0 +1,40 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="{% static 'css/LITReview.css' %}">
+</head>
+<body>
+<div class="headtitle">
+<div class="row" style="margin-bottom:0px">
+
+<div class="col s1 offset-s5">
+  LITReview
+</div>
+  {% if user.is_authenticated %}
+<div class="col s1 offset-s1">
+  <a href="{% url 'feed' %}">Flux</a>
+</div>
+  <div class="col s1">
+    <a href="{% url 'posts' %}">Posts</a>
+  </div>
+  <div class="col s1">
+    <a href="{% url 'abonnements' %}">Abonnements</a>
+  </div>
+  <div class="col s2">
+  <a href="{% url 'logout' %}">Se déconnecter</a>
+    </div>
+{% else %}
+{% endif %}
+</div>
+</div>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

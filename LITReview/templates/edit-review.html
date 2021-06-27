@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="row container">
+<div class="col s8 offset-s2">
+
+<div class="center-align">Modifier une review</div>
+
+<form action="" method="post">
+  {% csrf_token %}
+
+
+<div>{% if request.user == ticket.user %} Vous avez
+{% else %} {{ ticket.user }} a
+{% endif %} demandé une critique</div>
+<div class="right-align">{{ ticket.time_created }}</div>
+<div>{{ ticket.title }}</div>
+<div>{{ ticket.description }}</div>
+<div>{{ ticket.image }}</div>
+
+
+
+<span>Headline</span>
+<input name="headline" id="headline">
+
+<span>Commentaire</span>
+<input name="commentaire" id="commentaire">
+
+
+
+<input type="submit" value="OK">
+</form>
+
+</div>
+</div>
+{% endblock %}

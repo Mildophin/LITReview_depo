@@ -1,0 +1,33 @@
+.headtitle {
+border: solid 1px black;
+text-align: center;
+padding: 10px 0;
+}
+
+body {
+border: solid 1px black;
+}
+
+.medium-height {
+height: 400px;
+}
+
+.bordure-bouton {
+margin: 10px 0px;
+}
+
+.post {
+border:1px solid black;
+margin-top: 10px;
+}
+
+.follow-input {
+    width:60%!important;
+    margin-right: 90px!important;
+}
+
+.time {
+    margin-right: 20px;
+    font-size: 13px;
+}
+

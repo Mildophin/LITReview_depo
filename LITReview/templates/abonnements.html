@@ -1,0 +1,45 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+
+<div class="row container">
+    <div class="col s8 offset-s2">
+        <form action="" method="post">
+            {% csrf_token %}
+            </br>
+            <div class="center-align">Suivre d'autres utilisateurs</div>
+            <div class="follow-bar">
+            <input name="follow_user" id="follow_user" class="follow-input">
+            <input type="submit" value="Envoyer" class="waves-effect waves-light btn">
+            </div>
+        </form>
+            </br>
+            <div class="center-align">Abonnements</div>
+        </br>
+        <table class="striped">
+            {% for following  in following %}
+        <tr>
+            <td>{{ following.followed_user }} </td>
+            <td><a class="right" href="{% url 'remove-follower' id_follower=following.id %}">Désabonner</a></td>
+        </tr>
+            {% endfor %}
+        </table>
+            </br>
+            <div class="center-align">Abonnés</div>
+            </br>
+        <table class="striped">
+
+            {% for follower  in followers %}
+            <tr><td>{{ follower.user }}</td></tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+
+{% endblock %}
