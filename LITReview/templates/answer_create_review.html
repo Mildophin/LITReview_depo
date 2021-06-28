@@ -7,7 +7,7 @@
 <div class="row container">
 <div class="col s8 offset-s2">
 </br>
-<div class="center-align">Modifier une critique</div>
+<div class="center-align">Créer une critique</div>
 
 <form action="" method="post">
   {% csrf_token %}
@@ -25,13 +25,13 @@
 <br>
 
 <span>Headline</span>
-<input name="headline" id="headline" value="{{ review.headline }}">
+<input name="headline" id="headline">
 
 <span>Note (entre 1 et 5)</span>
-<input type="number" id="rating" name="rating" min="1" max="5" value="{{ review.rating }}">
+<input type="number" id="rating" name="rating" min="1" max="5" value="1">
 
 <span>Commentaire</span>
-<input name="commentaire" id="commentaire" value="{{ review.body }}">
+<input name="commentaire" id="commentaire">
 
 
 

@@ -6,25 +6,29 @@
 
 <div class="row container">
 <div class="col s8 offset-s2">
-
-<div class="center-align">Créer un ticket</div>
+</br>
+<div class="center-align">Créer une critique</div>
 
 <form action="" method="post">
     {% csrf_token %}
+<div class="titre-critique">Livre / Article</div>
 <span>Titre</span>
 <input name="titre" id="titre">
 
 <span>Description</span>
 <input name="description" id="description">
-
-
+</br></br>
+<div class="titre-critique">Critique</div>
 <span>Headline</span>
 <input name="headline" id="headline">
+
+<span>Note (entre 1 et 5)</span>
+<input type="number" id="rating" name="rating" min="1" max="5" value="1">
 
 <span>Commentaire</span>
 <input name="commentaire" id="commentaire">
 
-    <input type="submit" value="OK">
+    <div class="right-align"><input type="submit" value="Envoyer" class="waves-effect waves-light btn espace"></div>
 </form>
 
 </div>

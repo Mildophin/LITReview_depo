@@ -9,9 +9,11 @@
       <div class="col s6 offset-s3">
         <div class="container center-align">
         <div class="col s12">Inscrivez-vous</div>
+
+            {% if message %}
+                <div class="col s12" style="color:red;margin-top: 10px;margin-bottom: 10px;">Les deux mots de passe ne sont pas similaires</div>
+            {% endif %}
         <div class="row">
-
-
         <form action="" method="post" role="form">
                 {% csrf_token %}
           <div class="input-field col s12">

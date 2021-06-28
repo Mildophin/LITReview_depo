@@ -15,5 +15,5 @@ urlpatterns = [
     path('edit-ticket/<int:id_ticket>', views.editticket, name='edit-ticket'),
     path('edit-review/<int:id_review>', views.editreview, name='edit-review'),
     path('remove-follower/<int:id_follower>', views.removefollower, name='remove-follower'),
-    path('create-review/<int:id_ticket>', views.create_review, name='create-review'),
+    path('create-review/<int:id_ticket>', views.answer_review, name='answer-review')
 ]

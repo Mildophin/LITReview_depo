@@ -28,7 +28,9 @@
 <div>{{ post.ticket.image }}</div>
 </div>
 {% endif %}
-    <button><a href="{% url 'edit-review' id_review=post.id %}">Modifier</a></button>
-    <button><a href="{% url 'delete-review' id_review=post.id %}">Supprimer</a></button>
+    </br>
+<div class="row">
+<div class="col offset-s7"><a class="waves-effect waves-light btn" href="{% url 'edit-review' id_review=post.id %}">Modifier</a></div>
+<div class="col"><a class="waves-effect waves-light btn" href="{% url 'delete-review' id_review=post.id %}">Supprimer</a></div>
 </div>
-
+</div>

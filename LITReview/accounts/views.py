@@ -1,12 +1,9 @@
-# accounts/views.py
 import traceback
 from itertools import chain
-
 from django.db.models import CharField, Value
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-
 from .models import Ticket, Review, UserFollows
 
 
@@ -25,6 +22,7 @@ def deconnexion(request):
     logout(request)
     return redirect('home')
 
+
 def signup(request):
     if request.method == "GET":
         return render(request, "signup.html")
@@ -33,10 +31,11 @@ def signup(request):
         password = request.POST['password']
         password2 = request.POST['password2']
         if password == password2:
-            User.objects.create_user(username=username,password=password)
+            User.objects.create_user(username=username, password=password)
             return redirect("home")
         else:
-            return render(request, "signup.html")
+            message = "username or password not correct"
+            return render(request, "signup.html", locals())
     else:
         return render(request, 'home')
 
@@ -48,7 +47,7 @@ def get_users_viewable_reviews(user):
         flo.append(fuser.followed_user)
     viewable_reviews_followed_users = Review.objects.filter(user__in=flo)
     viewable_reviews = Review.objects.filter(user=user)
-    final = viewable_reviews_followed_users|viewable_reviews
+    final = viewable_reviews_followed_users | viewable_reviews
     return final
 
 
@@ -59,8 +58,7 @@ def get_users_viewable_tickets(user):
         flo.append(fuser.followed_user)
     viewable_tickets_followed_users = Ticket.objects.filter(user__in=flo)
     viewable_tickets = Ticket.objects.filter(user=user)
-    ticket_list = []
-    final = viewable_tickets_followed_users|viewable_tickets
+    final = viewable_tickets_followed_users | viewable_tickets
     return final
 
 
@@ -125,8 +123,9 @@ def create_ticket(request):
         titre = request.POST['titre']
         description = request.POST['description']
         user = request.user
-        Ticket.objects.create(title=titre,description=description,user=user)
+        Ticket.objects.create(title=titre, description=description, user=user)
         return redirect("feed")
+
 
 def create_review(request):
     if request.method == "GET":
@@ -138,23 +137,28 @@ def create_review(request):
         ticket = Ticket.objects.create(title=titre, description=description, user=user)
         headline = request.POST['headline']
         commentaire = request.POST['commentaire']
-        Review.objects.create(headline=headline, ticket=ticket, body=commentaire, rating=rating,user=user)
+        rating = int(request.POST['rating'])
+        Review.objects.create(headline=headline, ticket=ticket, body=commentaire, rating=rating, user=user)
         return redirect("feed")
+
 
 def deleteticket(request, id_ticket):
     ticket = get_object_or_404(Ticket, pk=id_ticket)
     ticket.delete()
     return redirect('posts')
 
+
 def deletereview(request, id_review):
     review = get_object_or_404(Review, pk=id_review)
     review.delete()
     return redirect('posts')
 
+
 def removefollower(request, id_follower):
     follower = get_object_or_404(UserFollows, pk=id_follower)
     follower.delete()
     return redirect('abonnements')
+
 
 def editticket(request, id_ticket):
     ticket = Ticket.objects.get(pk=id_ticket)
@@ -164,11 +168,13 @@ def editticket(request, id_ticket):
         elif request.method == "POST":
             titre = request.POST['titre']
             description = request.POST['description']
-            my_ticket = Ticket(title=titre,description=description)
+            my_ticket = Ticket(id=ticket.id, title=titre, description=description, user=request.user,
+                               time_created=ticket.time_created)
             my_ticket.save()
             return redirect('posts')
     else:
         return redirect('home')
+
 
 def editreview(request, id_review):
     review = Review.objects.get(pk=id_review)
@@ -177,10 +183,28 @@ def editreview(request, id_review):
         if request.method == "GET":
             return render(request, 'edit-review.html', locals())
         elif request.method == "POST":
-            titre = request.POST['titre']
-            description = request.POST['description']
-            my_ticket = Ticket(title=titre,description=description)
-            my_ticket.save()
+            headline = request.POST['headline']
+            rating = request.POST['rating']
+            commentaire= request.POST['commentaire']
+            my_review = Review(id=review.id, headline=headline, rating=rating, body=commentaire, user=request.user,
+                               time_created=review.time_created, ticket=review.ticket)
+            my_review.save()
             return redirect('posts')
+    else:
+        return redirect('home')
+
+
+
+
+def answer_review(request, id_ticket):
+    ticket = Ticket.objects.get(pk=id_ticket)
+    if request.method == "GET":
+        return render(request, "answer_create_review.html", locals())
+    elif request.method == "POST":
+        headline = request.POST['headline']
+        commentaire = request.POST['commentaire']
+        rating = int(request.POST['rating'])
+        Review.objects.create(headline=headline, ticket=ticket, body=commentaire, rating=rating, user=request.user)
+        return redirect("feed")
     else:
         return redirect('home')

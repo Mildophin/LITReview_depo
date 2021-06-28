@@ -5,9 +5,9 @@
 <div class="right-align time">{{ post.time_created }}</div>
 <div>{{ post.title }}</div>
 <div>{{ post.description }}</div>
-<div>{{ post.image }}</div>
 
-    <button><a href="{% url 'edit-ticket' id_ticket=post.id %}">Modifier</a></button>
-    <button><a href="{% url 'delete-ticket' id_ticket=post.id %}">Supprimer</a></button>
+<div class="row">
+<div class="col offset-s7"><a class="waves-effect waves-light btn" href="{% url 'edit-ticket' id_ticket=post.id %}">Modifier</a></div>
+<div class="col"><a class="waves-effect waves-light btn" href="{% url 'delete-ticket' id_ticket=post.id %}">Supprimer</a></div>
 </div>
-
+</div>

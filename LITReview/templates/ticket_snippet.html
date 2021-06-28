@@ -8,6 +8,6 @@
 <div>{{ post.image }}</div>
 
 {% if post.id in review_list %}
-{% else %} <button>Créer une critique</button>
+{% else %} <div class="right-align"><a class="waves-effect waves-light btn espace" href="{% url 'answer-review' id_ticket=post.id %}">Créer une critique</a></div>
 {% endif %}
 </div>

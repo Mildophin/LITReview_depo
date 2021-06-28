@@ -17,8 +17,9 @@ margin: 10px 0px;
 }
 
 .post {
-border:1px solid black;
+border:2px solid darkcyan;
 margin-top: 10px;
+padding:3px;
 }
 
 .follow-input {
@@ -31,3 +32,15 @@ margin-top: 10px;
     font-size: 13px;
 }
 
+.espace {
+    margin: 15px;
+}
+
+.head-espace {
+    margin: 10px 0 10px 0;
+}
+
+.titre-critique {
+    margin: 10px 0 20px 0;
+    font-weight: bold;
+}
