@@ -1,5 +1,6 @@
 # LITReview
 
+0. S'assurer d'avoir le compiler de python installé
 1. Télécharger et installer Virtual Env
 2. Le lancer
 3. Télécharger les requirements
