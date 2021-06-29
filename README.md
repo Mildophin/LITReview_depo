@@ -48,7 +48,7 @@ Cette commande va installer le package de django, qui nous est obligatoire pour 
 
 ### Mettre les fichiers du projet dans le dossier qui vient d'être créé
 
-Dans l'environnement virtuel précedemment créé
+Dans le dossier du projet de l'environnement virtuel précedemment créé
 
 ### Lancer django
 
