@@ -34,15 +34,19 @@ Puis:
 
 Cette commande va lancer l'environnement virtuel que l'on vient de créer.
 
-### Installer django
+### Installer Django & Pillow
 
 Puis, pour windows:
 
 `py -m pip install Django`
 
+`py -m pip install Pillow`
+
 Pour Mac:
 
 `sudo pip install django`
+
+`sudo pip install Pillow`
 
 Cette commande va installer le package de django, qui nous est obligatoire pour faire tourner le site internet.
 
@@ -53,6 +57,10 @@ Dans le dossier du projet de l'environnement virtuel précedemment créé.
 ### Lancer django
 
 Toujours dans l'invite de commande:
+
+`cd LITReview/LITReview`
+
+Puis:
 
 `py manage.py runserver`
 
