@@ -76,7 +76,7 @@ Et relancer le serveur:
 
 ### Se connecter au site
 
-Le site est finalement en ligne en local ! Pour y accèder il faut se rendre sur [127.0.0.1:8000](127.0.0.1:8000)
+Le site est finalement en ligne en local ! Pour y accèder il faut se rendre sur <http://127.0.0.1:8000>
 
 ## Identifiants de connection
 Login: admin\
