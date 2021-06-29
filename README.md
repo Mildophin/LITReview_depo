@@ -40,13 +40,29 @@ Cette commande va installer le package de django, qui nous est obligatoire pour 
 5. Mettre les fichiers du projet dans le dossier qui vient d'être créé
 
 
-
 6. Lancer django
+
+Toujours dans l'invite de commande:
 
 `py manage.py runserver`
 
-10. Faire les make migrations
-11. Faire les migrates
+Puis faire `Ctrl + C` pour stopper le serveur
+
+7. Faire les migrations
+
+Enfin, il faut connecter la base de données SQL au serveur:
+
+Taper:
+
+`py manage.py makemigrations`
+
+Puis:
+
+`py manage.py migrate`
+
+Et relancer le serveur:
+
+`py manage.py runserver`
 
 ## Identifiants de connection
 Login: admin\
