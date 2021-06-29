@@ -4,65 +4,70 @@ Ceci est le dossier du projet LITReview, vous trouverez l'ensemble des étapes n
 
 ![alt text](https://user.oc-static.com/upload/2020/09/18/16004297044411_P7.png "Logo LITReview")
 
-## Etapes
+## Etapes à suivre sur Windows et Mac
 
 1. S'assurer d'avoir le compiler de python installé
 
-Ouvrir la console de commande de l'OS et taper:
+ * Ouvrir la console de commande de l'OS et taper:
 
 
-`py --version`
+ * `py --version`
 
 2. Installer Virtual Env
 
-Toujours dans la console, écrire:
+ * Toujours dans la console, écrire:
 
-`py -m venv LITReview`
+ * `py -m venv LITReview`
 
-Cette commande va créer un environnement virtuel pour le projet.
+ * Cette commande va créer un environnement virtuel pour le projet.
 
 3. Le lancer
 
-Puis:
+ * Puis:
 
-`LITReview\Scripts\activate.bat`
+ * `LITReview\Scripts\activate.bat`
 
-Cette commande va lancer l'environnement virtuel que l'on vient de créer.
+ * Cette commande va lancer l'environnement virtuel que l'on vient de créer.
 
 4. Installer django
 
-Puis:
+ * Puis, pour windows:
 
-`py -m pip install Django`
+ * `py -m pip install Django`
 
-Cette commande va installer le package de django, qui nous est obligatoire pour faire tourner le site internet.
+ * Pour Mac:
+
+ * `sudo pip install django`
+
+ * Cette commande va installer le package de django, qui nous est obligatoire pour faire tourner le site internet.
 
 5. Mettre les fichiers du projet dans le dossier qui vient d'être créé
 
+ * Dans l'environnement virtuel précedemment créé
 
 6. Lancer django
 
-Toujours dans l'invite de commande:
+ * Toujours dans l'invite de commande:
 
-`py manage.py runserver`
+ * `py manage.py runserver`
 
-Puis faire `Ctrl + C` pour stopper le serveur
+ * Puis faire `Ctrl + C` pour stopper le serveur
 
 7. Faire les migrations
 
-Enfin, il faut connecter la base de données SQL au serveur:
+ * Enfin, il faut connecter la base de données SQL au serveur:
 
-Taper:
+ *Taper:
 
-`py manage.py makemigrations`
+ * `py manage.py makemigrations`
 
-Puis:
+ * Puis:
 
-`py manage.py migrate`
+ * `py manage.py migrate`
 
-Et relancer le serveur:
+ * Et relancer le serveur:
 
-`py manage.py runserver`
+ * `py manage.py runserver`
 
 ## Identifiants de connection
 Login: admin\
