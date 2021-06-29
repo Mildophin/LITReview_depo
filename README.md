@@ -13,6 +13,11 @@ Ouvrir la console de commande de l'OS et taper:
 
 `py --version`
 
+
+Si il y a une erreur, alors aller sur python.org et télécharger la dernière version:
+
+[Site officiel de python](https://www.python.org/downloads/)
+
 ### Installer Virtual Env
 
 Toujours dans la console, écrire:
